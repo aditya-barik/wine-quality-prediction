@@ -3,7 +3,7 @@ import argparse
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-from utils import load_config, watchit
+from .utils import load_config, watchit
 
 @watchit
 def load_data_from_local_source(local_data_source: str) -> pd.DataFrame:

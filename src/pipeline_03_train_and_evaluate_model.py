@@ -9,7 +9,7 @@ import pandas as pd
 from sklearn.linear_model import ElasticNet
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
-from utils import load_config, watchit
+from .utils import load_config, watchit
 
 @watchit
 def train_and_evaluate_model(config_path: str) -> None:

@@ -2,7 +2,7 @@ import argparse
 
 import pandas as pd
 
-from utils import load_config, watchit
+from .utils import load_config, watchit
 
 @watchit
 def fetch_data_from_remote_source(remote_data_source: str) -> pd.DataFrame:

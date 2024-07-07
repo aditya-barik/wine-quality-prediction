@@ -1,0 +1,14 @@
+README.md
+setup.py
+src/__init__.py
+src/pipeline_01_get_data_from_remote_source.py
+src/pipeline_02_split_data_into_train_and_test.py
+src/pipeline_03_train_and_evaluate_model.py
+src/utils.py
+tests/__init__.py
+tests/conftest.py
+tests/test_config.py
+wine_quality_prediction.egg-info/PKG-INFO
+wine_quality_prediction.egg-info/SOURCES.txt
+wine_quality_prediction.egg-info/dependency_links.txt
+wine_quality_prediction.egg-info/top_level.txt

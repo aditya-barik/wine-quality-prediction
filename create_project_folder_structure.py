@@ -7,7 +7,8 @@ dirs = [
     "notebooks",
     "models",
     "reports",
-    "src"
+    "src",
+    "tests"
 ]
 
 for dir in dirs:
@@ -21,7 +22,8 @@ files = [
     "params.yaml",
     ".gitignore",
     "README.md",
-    os.path.join("src", "__init__.py")
+    os.path.join("src", "__init__.py"),
+    "tox.ini"
 ]
 
 for file in files:
