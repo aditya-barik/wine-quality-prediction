@@ -3,6 +3,7 @@ from functools import wraps
 import time
 import yaml
 
+
 def watchit(func):
     """decorator function to print execution time"""
 
@@ -18,20 +19,23 @@ def watchit(func):
         seconds = int(elapsed_time % 60)
 
         if (days == 0) and (hours == 0) and (minutes == 0):
-            elapsed_time_str = f"Time elapsed to {func.__doc__} : {elapsed_time:.5f} seconds"
+            run_time = f"{elapsed_time:.5f} seconds"
         elif (days == 0) and (hours == 0):
-            elapsed_time_str = f"Time elapsed to {func.__doc__} : {minutes} minutes {seconds} seconds"
+            run_time = f"{minutes} minutes {seconds} seconds"
         elif (days == 0):
-            elapsed_time_str = f"Time elapsed to {func.__doc__} : {hours} hours {minutes} minutes {seconds} seconds"
+            run_time = f"{hours} hours {minutes} minutes {seconds} seconds"
         else:
-            elapsed_time_str = f"Time elapsed to {func.__doc__} : {days} days, {hours} hours {minutes} minutes {seconds} seconds"
+            run_time = f"{days} days, "
+            run_time += f"{hours} hours {minutes} minutes {seconds} seconds"
 
+        elapsed_time_str = f"Time elapsed to {func.__doc__} : {run_time}"
         elapsed_time_str = f"\033[93m{elapsed_time_str}\033[0m"
 
         print(elapsed_time_str)
 
         return result
     return wrapper
+
 
 def load_config(config_path: str) -> dict:
     """load config"""
@@ -40,16 +44,16 @@ def load_config(config_path: str) -> dict:
         config = yaml.safe_load(yaml_file)
     return config
 
+
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(
-        description = "Load config"
+        description="Load config"
     )
     parser.add_argument(
         "--config",
-        required = True
+        required=True
     )
     args = parser.parse_args()
 
-    config = load_config(config_path = args.config)
-    print("config : \n", config)
+    config = load_config(config_path=args.config)
