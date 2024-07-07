@@ -40,3 +40,27 @@ stages:
       hash: md5
       md5: 069b522b0321bc25a626ceeffcb8eb44
       size: 93598
+  split_data_into_train_and_test_and_save:
+    cmd: python src/pipeline_02_split_data_into_train_and_test.py --config params.yaml
+    deps:
+    - path: data/raw/winequality.csv
+      hash: md5
+      md5: 069b522b0321bc25a626ceeffcb8eb44
+      size: 93598
+    - path: src/pipeline_02_split_data_into_train_and_test.py
+      hash: md5
+      md5: 6eb7a4073548459d97b7f9fc29bf92d8
+      size: 1871
+    - path: src/utils.py
+      hash: md5
+      md5: 58917a62992a66faef3f4f3daaa23b01
+      size: 1795
+    outs:
+    - path: data/processed/test_winequality.csv
+      hash: md5
+      md5: ee3284843265e5855bc07dd6427ab1c2
+      size: 18831
+    - path: data/processed/train_winequality.csv
+      hash: md5
+      md5: 81dce00e053ba5ebabeacf8e7dca537a
+      size: 74913

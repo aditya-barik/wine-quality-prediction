@@ -1,4 +1,5 @@
 stages:
+
   get_data_from_remote_source_and_save_it_in_local:
     cmd: python src/pipeline_01_get_data_from_remote_source.py --config params.yaml
     deps:
@@ -7,3 +8,13 @@ stages:
       - data/remote/winequality.csv
     outs:
       - data/raw/winequality.csv
+
+  split_data_into_train_and_test_and_save:
+    cmd: python src/pipeline_02_split_data_into_train_and_test.py --config params.yaml
+    deps:
+      - src/utils.py
+      - src/pipeline_02_split_data_into_train_and_test.py
+      - data/raw/winequality.csv
+    outs:
+      - data/processed/train_winequality.csv
+      - data/processed/test_winequality.csv
