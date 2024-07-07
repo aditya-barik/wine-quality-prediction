@@ -18,3 +18,21 @@ stages:
     outs:
       - data/processed/train_winequality.csv
       - data/processed/test_winequality.csv
+
+  train_and_evaluate_model:
+    cmd: python src/pipeline_03_train_and_evaluate_model.py --config params.yaml
+    deps:
+      - src/utils.py
+      - src/pipeline_03_train_and_evaluate_model.py
+      - data/processed/train_winequality.csv
+      - data/processed/test_winequality.csv
+    params:
+      - estimators.ElasticNet.params.alpha
+      - estimators.ElasticNet.params.l1_ratio
+    metrics:
+      - reports/params.json:
+          cache: false
+      - reports/scores.json:
+          cache: false
+    outs:
+      - models/model.joblib

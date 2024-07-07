@@ -18,4 +18,8 @@ estimators:
       alpha: 0.88
       l1_ratio: 0.89
 
+reports:
+  params: reports/params.json
+  scores: reports/scores.json
+
 model_dir: models
