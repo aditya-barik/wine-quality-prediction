@@ -27,6 +27,18 @@ def save_data(data: pd.DataFrame, local_data_source: str) -> None:
         index = False
     )
 
+def get_data_from_remote_source_and_save(config_path: str) -> None:
+    """get data from remote source and save it in local"""
+
+    config = load_config(config_path = config_path)
+    data = fetch_data_from_remote_source(
+        remote_data_source = config["data_source"]["remote_source"]
+    )
+    save_data(
+        data = data,
+        local_data_source = config["data_source"]["local_source"]
+    )
+
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(
@@ -38,12 +50,4 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    config = load_config(config_path = args.config)
-    data = fetch_data_from_remote_source(
-        remote_data_source = config["data_source"]["remote_source"]
-    )
-
-    save_data(
-        data = data,
-        local_data_source = config["data_source"]["local_source"]
-    )
+    get_data_from_remote_source_and_save(config_path = args.config)

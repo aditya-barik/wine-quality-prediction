@@ -29,8 +29,8 @@ stages:
       size: 91998
     - path: src/pipeline_01_get_data_from_remote_source.py
       hash: md5
-      md5: 434cf20409489c4dce750c767e8291e6
-      size: 1244
+      md5: 91d28debc1e9c1070f34ed00c7bc6c59
+      size: 1444
     - path: src/utils.py
       hash: md5
       md5: 58917a62992a66faef3f4f3daaa23b01
