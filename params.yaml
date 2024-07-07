@@ -5,9 +5,7 @@ base:
 
 data_source:
   remote_source: data/remote/winequality.csv
-
-load_data:
-  raw_data: data/raw/winequality.csv
+  local_source: data/raw/winequality.csv
 
 split_data:
   train_data: data/processed/train_winequality.csv

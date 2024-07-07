@@ -1,0 +1,9 @@
+stages:
+  get_data_from_remote_source_and_save_it_in_local:
+    cmd: python src/pipeline_01_get_data_from_remote_source.py --config params.yaml
+    deps:
+      - src/utils.py
+      - src/pipeline_01_get_data_from_remote_source.py
+      - data/remote/winequality.csv
+    outs:
+      - data/raw/winequality.csv

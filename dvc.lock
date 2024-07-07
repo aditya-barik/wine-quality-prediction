@@ -1,0 +1,42 @@
+schema: '2.0'
+stages:
+  fetch_data_from_remote_source:
+    cmd: python src/pipeline_01_get_data_from_remote_source.py --config params.yaml
+    deps:
+    - path: data/remote/winequality.csv
+      hash: md5
+      md5: ccc8d3507eb151f53f760d36abdef888
+      size: 91998
+    - path: src/pipeline_01_get_data_from_remote_source.py
+      hash: md5
+      md5: 33af075c8e0b979a27544e246e573868
+      size: 1193
+    - path: src/utils.py
+      hash: md5
+      md5: 58917a62992a66faef3f4f3daaa23b01
+      size: 1795
+    outs:
+    - path: data/raw/winequality.csv
+      hash: md5
+      md5: 069b522b0321bc25a626ceeffcb8eb44
+      size: 93598
+  get_data_from_remote_source_and_save_it_in_local:
+    cmd: python src/pipeline_01_get_data_from_remote_source.py --config params.yaml
+    deps:
+    - path: data/remote/winequality.csv
+      hash: md5
+      md5: ccc8d3507eb151f53f760d36abdef888
+      size: 91998
+    - path: src/pipeline_01_get_data_from_remote_source.py
+      hash: md5
+      md5: 434cf20409489c4dce750c767e8291e6
+      size: 1244
+    - path: src/utils.py
+      hash: md5
+      md5: 58917a62992a66faef3f4f3daaa23b01
+      size: 1795
+    outs:
+    - path: data/raw/winequality.csv
+      hash: md5
+      md5: 069b522b0321bc25a626ceeffcb8eb44
+      size: 93598
