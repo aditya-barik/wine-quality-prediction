@@ -9,11 +9,7 @@ from utils import load_config, watchit
 def load_data_from_local_source(local_data_source: str) -> pd.DataFrame:
     """load data from local source"""
 
-    return pd.read_csv(
-        local_data_source,
-        sep = ",",
-        encoding = "utf-8"
-    )
+    return pd.read_csv(local_data_source, sep = ",", encoding = "utf-8")
 
 @watchit
 def split_and_save_data(
@@ -31,16 +27,8 @@ def split_and_save_data(
         random_state = random_state
     )
 
-    train_data.to_csv(
-        train_data_path,
-        sep = ",",
-        index = False
-    )
-    test_data.to_csv(
-        test_data_path,
-        sep = ",",
-        index = False
-    )
+    train_data.to_csv(train_data_path, sep = ",", index = False)
+    test_data.to_csv(test_data_path, sep = ",", index = False)
 
 def split_data_into_train_and_test_and_save(config_path: str) -> None:
     """split data into train and test and save"""
