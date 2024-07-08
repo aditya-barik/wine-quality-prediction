@@ -12,7 +12,7 @@ dirs = [
 ]
 
 for dir in dirs:
-    os.makedirs(dir, exist_ok = True)
+    os.makedirs(dir, exist_ok=True)
     with open(os.path.join(dir, ".gitkeep"), "w") as f:
         pass
 
