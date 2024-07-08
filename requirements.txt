@@ -10,3 +10,4 @@ pytest
 tox
 # jupyterlab
 flake8
+Flask

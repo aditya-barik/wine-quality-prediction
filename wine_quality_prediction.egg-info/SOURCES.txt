@@ -12,3 +12,5 @@ wine_quality_prediction.egg-info/PKG-INFO
 wine_quality_prediction.egg-info/SOURCES.txt
 wine_quality_prediction.egg-info/dependency_links.txt
 wine_quality_prediction.egg-info/top_level.txt
+wine_quality_prediction_service/__init__.py
+wine_quality_prediction_service/wine_quality_prediction.py
