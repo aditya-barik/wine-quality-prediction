@@ -1,1 +1,1 @@
-web gunicorn wine_quality_prediction_app:wine_quality_prediction_app
+web gunicorn app:app
