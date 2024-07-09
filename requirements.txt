@@ -11,3 +11,4 @@ tox
 # jupyterlab
 flake8
 Flask
+gunicorn
