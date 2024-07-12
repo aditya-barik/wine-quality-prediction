@@ -1,3 +1,0 @@
-src
-tests
-wine_quality_prediction_service
