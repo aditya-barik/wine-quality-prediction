@@ -2,7 +2,7 @@ import argparse
 
 import pandas as pd
 
-from .utils import load_config, watchit
+from utils import load_config, watchit
 
 
 @watchit
