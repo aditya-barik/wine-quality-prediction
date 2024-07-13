@@ -21,24 +21,24 @@ app = Flask(__name__, static_folder=static_dir, template_folder=template_dir)
 def index():
 
     if request.method == "POST":
-        try:
-            if request.form:
+        if request.form:
+            try:
                 data_request = dict(request.form)
                 prediction = wine_quality_prediction.get_web_response(
                     data_request
                 )
                 return render_template("index.html", response=prediction)
-            elif request.json:
+            except Exception as e:
+                error = {"error": e}
+                return render_template("404.html", error=error)
+        elif request.json:
+            try:
                 response = wine_quality_prediction.get_api_response(
                     request.json
                 )
                 return jsonify(response)
-            pass
-
-        except Exception as e:
-            error = {"error": e}
-            return render_template("404.html", error=error)
-        pass
+            except Exception as e:
+                return {"error": str(e)}
     else:
         return render_template("index.html")
 

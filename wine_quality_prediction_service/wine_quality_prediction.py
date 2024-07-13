@@ -46,8 +46,9 @@ def is_valid_input(request_dict):
         max_valid_val = schema[col]["max"]
         if not min_valid_val <= float(val) <= max_valid_val:
             raise NotInRangeError(
-                f"{val} is not in valid range "
-                f"[{min_valid_val}, {max_valid_val}]"
+                f"For {col} column, "
+                f"{val} is not in valid range. "
+                f"Valid Range is: [{min_valid_val}, {max_valid_val}]"
             )
     for col, val in request_dict.items():
         _is_valid_col_name(col)
@@ -97,10 +98,19 @@ def get_api_response(request_dict):
                 "response": None,
                 "valid_range": load_schema()
             }
-    except Exception as e:
+    except NotInColumnsError as e:
+        response = {
+            "response": str(e),
+            "valid_columns": list(load_schema().keys())
+        }
+    except NotInRangeError as e:
         response = {
             "response": str(e),
             "valid_range": load_schema()
+        }
+    except Exception as e:
+        response = {
+            "response": str(e)
         }
     finally:
         return response
