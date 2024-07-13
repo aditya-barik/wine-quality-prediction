@@ -8,7 +8,7 @@ scikit-learn
 pandas
 pytest
 tox
-# jupyterlab
+jupyterlab
 flake8
 Flask
 gunicorn
